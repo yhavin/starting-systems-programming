@@ -1,0 +1,5 @@
+{
+  "gopls": {
+    "ui.newGoFileHeader": false  // Stops gopls from auto-including package name at top of each file
+  }
+}
