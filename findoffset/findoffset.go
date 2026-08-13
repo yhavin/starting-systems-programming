@@ -19,13 +19,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	for i := 0; i < len(b) - len(pattern); i++ {
+	for i := 0; i < len(b)-len(pattern); i++ {
 		for j := range pattern {
-			if b[i + j] != pattern[j] {
+			if b[i+j] != pattern[j] {
 				break
 			}
 
-			if j == len(pattern) - 1 {
+			if j == len(pattern)-1 {
 				fmt.Fprintf(os.Stdout, "%d\n", i)
 				os.Exit(0)
 			}
