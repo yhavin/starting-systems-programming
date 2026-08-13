@@ -56,7 +56,7 @@ func hexdump(dst io.Writer, src io.Reader) error {
 				return err
 			}
 		}
-		if err == io.ErrUnexpectedEOF {
+		if err == io.EOF || err == io.ErrUnexpectedEOF {
 			return nil
 		} else if err != nil {
 			return err
