@@ -11,3 +11,9 @@ func Fatalf(format string, args ...interface{}) {
 	syscall.Syscall(syscall.SYS_WRITE, uintptr(syscall.Stderr), uintptr(unsafe.Pointer(&buf[0])), uintptr(len(buf)))
 	syscall.Syscall(syscall.SYS_EXIT, 1, 0, 0)
 }
+
+func Cstr(s string) unsafe.Pointer {
+	b := make([]byte, len(s)+1)
+	copy(b, s)
+	return unsafe.Pointer(&b[0])
+}
