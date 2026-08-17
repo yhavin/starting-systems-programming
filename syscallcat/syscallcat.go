@@ -31,6 +31,8 @@ func main() {
 		utils.Fatalf("open: %v\n", err)
 	}
 
+	const FD_STDOUT = 1
+
 	var buf [1024]byte
 
 READ:
@@ -42,8 +44,6 @@ READ:
 			uintptr(unsafe.Pointer(ptr)),
 			uintptr(len(buf)),
 		)
-
-		const FD_STDOUT = 1
 
 		for offset := uintptr(0); offset < n; {
 			ptr := &buf[offset]
